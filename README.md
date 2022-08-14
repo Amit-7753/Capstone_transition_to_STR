@@ -5,4 +5,6 @@ We have to analyse market rental data, property type, occupancy rates vs price e
 
 
 First we will pull data from Capstone database.
-Visualize data in Tableau.
+Visualize data in Tableau. ( https://public.tableau.com/views/Capstonepropertiespossiblerents/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link )
+
+
