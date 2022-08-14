@@ -1,0 +1,29 @@
+One of capstone's client - watershedhas agreed to use his 244 properties for short term rentals as he is also curious.
+We will extract all of 244 property data from 'capstone' database using SQL and combine those data and prepare table with 244 rows of data.
+
+SQL queries:
+
+SHOW tables FROM capstone;
+# Tables are location, property_type, st_property_info, st_rental_dates, st_rental_prices, watershed_property_info.
+SHOW columns from location;
+SHOW columns from property_type;
+SHOW columns from st_property_info;
+SHOW columns from st_rental_dates;
+SHOW columns from st_rental_prices;
+SHOW columns from watershed_property_info;
+
+# Now combining all tables to extract only watershed properties and save it in csv file for excel.
+
+Capstone_data=SELECT DISTINCT w.ws_property_id, w.location, w.property_type, w.current_monthly_rent, srp.percentile_10th_price, srp.percentile_90th_price, \
+srp.sample_nightly_rent_price, srd.rental_date, srd.st_property, COUNT(srd.rental_date)/365 AS occupancy_rate, p.apt_house, p.num_bedrooms, p.kitchen, p.shared, l.city, l.state,l.zipcode \
+FROM watershed_property_info w JOIN st_property_info spi ON \
+(w.location=spi.location AND w.property_type=spi.property_type) JOIN st_rental_prices srp ON \
+(spi.location=srp.location AND spi.property_type=srp.property_type) JOIN property_type p ON \
+w.property_type=p.property_type_id JOIN location l ON w.location=l.location_id JOIN st_rental_dates srd ON \
+spi.st_property_id = srd.st_property WHERE YEAR(srd.rental_date)=2015 GROUP BY srd.st_property limit 5;
+file.csv('dwn.csv');
+
+Capstone_data.csv('Capstone_data.csv')
+
+#Following this query we have now extracted 244 rows of capstone's watershed data
+
