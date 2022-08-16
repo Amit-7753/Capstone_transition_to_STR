@@ -8,5 +8,5 @@ First we will pull data from Capstone database.
 Visualize data in Tableau.    (https://public.tableau.com/views/Capstonepropertiespossiblerents/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link )
 
 Final Sensitivity Analysis of Capstone properties in TABLEAU.
-(https://public.tableau.com/views/Sensitivity_Analysis_of_Capstone_project/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
+(https://public.tableau.com/shared/PW7W8SN9H?:display_count=n&:origin=viz_share_link)
 
